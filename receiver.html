@@ -8,9 +8,16 @@
   <div id="output">Message not received now!</div>
 
   <script>
-    window.addEventListener("message", (event) => {
-      document.getElementById("output").innerText = "Message received: " + event.data;
-    });
+
+   window.addEventListener("message", (event) => {
+  msg = JSON.parse(event.data);
+  if (msg.token === "SECRET123") {
+    document.getElementById("output").innerText = msg.text;
+  } else {
+    console.warn("Unauthorized message received from", event.origin);
+  }
+});
+
   </script>
 </body>
 </html>
