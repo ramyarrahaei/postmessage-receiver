@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Receiver</title>
+</head>
+<body>
+  <h2>Receiver Page</h2>
+  <div id="output">Message not received now!</div>
+
+  <script>
+    window.addEventListener("message", (event) => {
+      document.getElementById("output").innerText = "Message received: " + event.data;
+    });
+  </script>
+</body>
+</html>
